@@ -12,9 +12,8 @@ RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 20
 RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
 
 #installing SPARK
-RUN cd /usr/local/
-RUN wget http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz \
-    && tar -xvf spark-2.1.0-bin-hadoop2.7.tgz
+ARG SPARK_ARCHIVE=http://d3kbcqa49mib13.cloudfront.net/spark-2.1.0-bin-hadoop2.7.tgz
+RUN curl -s $SPARK_ARCHIVE | tar -xz -C /usr/local/
 
 
 RUN rm /usr/bin/docker-quickstart
