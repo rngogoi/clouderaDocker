@@ -12,6 +12,7 @@ RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 20000
 
 RUN rm /usr/bin/docker-quickstart
 ADD docker-quickstart /usr/bin/
+RUN chmod --777 /usr/bin/docker-quickstart
 #installing Java
 
 
